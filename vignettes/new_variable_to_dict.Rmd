@@ -158,7 +158,7 @@ Based on all the information above, let's say that we want to add a variable fro
 
 Given this information, let's try to download it first - using the `get_eurostat` function from the {`eurostat}` package:
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 dat_raw <- get_eurostat(id = "sts_inpr_q")
 dat_raw
 ```
@@ -237,21 +237,18 @@ $$
 EmiCO2Industry = HICP_{Gas} + HICP_{Electricity} + IndProd
 $$
 
-We put this into our specification table alongside a simple identity that we need for the moment because the current set-up does not allow not adding any identities.
+This is then the specification that we will run - with the type being `n` that denotes a Definition and will therefore be estimated: 
 
 ```{r}
 specification <- dplyr::tibble(
   type = c(
-    "n",
-    "d"
+    "n"
   ),
   dependent = c(
-    "EmiCO2Industry",
-    "TOTS"
+    "EmiCO2Industry"
   ),
   independent = c(
-    "HICP_Gas + HICP_Electricity + IndProd",
-    "GDP + Import"
+    "HICP_Gas + HICP_Electricity + IndProd"
   )
 )
 specification
@@ -269,7 +266,7 @@ model <- run_model(specification = specification,
 
 ```
 
-Let's visualise this model alongisde its forecast:
+Let's visualise this model alongside its forecast:
 
 ```{r, fig.height=5, out.width="100%"}
 mod_fcast <- forecast_model(model, plot.forecast = FALSE)

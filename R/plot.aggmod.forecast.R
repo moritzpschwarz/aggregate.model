@@ -6,6 +6,7 @@
 #' @param interactive Logical. Should the resulting plot be launched in an interactive way (the plotly package is required for this).
 #' @param first_date Character. First date value to be shown. Must be a character value that can be turned into a date using as.Date() or NULL.
 #' @param grepl_variables Regular Expression Character. Can be used to select variables to be plotted. Experimental feature so use with care.
+#' @param return.data Logical. Do not return a plot but rather just the final dataset that has been created for the plot.
 #' @param ... Further arguments (currently not in use).
 #'
 #' @export
@@ -34,9 +35,8 @@
 #' save_to_disk = NULL, present = FALSE)
 #' plot(forecast_model(a))
 #'}
-plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FALSE, interactive = FALSE, first_date = NULL, grepl_variables = NULL, ...){
+plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FALSE, interactive = FALSE, first_date = NULL, grepl_variables = NULL, return.data = FALSE, ...){
 
-  #if(class(x) != "aggmod.forecast"){
   if(!isa(x, "aggmod.forecast")){
     stop("Input object not of type aggmod.forecast. Run 'forecast_model' again and use the output of that function.")
   }
@@ -52,20 +52,25 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
                   na_item = gsub("\\.hat","",.data$na_item),
                   fit = as.character(stringr::str_detect(.data$var, ".hat"))) -> plot_df
 
-  plot_df %>%
-    dplyr::distinct(dplyr::across(c("na_item", "fit"))) %>%
-    dplyr::mutate(fit = as.logical(.data$fit)) %>%
-    dplyr::filter(.data$fit) %>%
-    dplyr::pull("na_item") -> when_excluding_exog
 
-
+  if(order.as.run & !exclude.exogenous){
+    cat("As 'order.as.run' is TRUE, exogenous values will not be shown. So 'exclude.exogenous' will be ignored.\n")
+    exclude.exogenous <- TRUE
+  }
   if(exclude.exogenous){
+    # determine which variables to exclude, when we are not including exogenous variables
+    plot_df %>%
+      dplyr::distinct(dplyr::across(c("na_item", "fit"))) %>%
+      dplyr::mutate(fit = as.logical(.data$fit)) %>%
+      dplyr::filter(.data$fit) %>%
+      dplyr::pull("na_item") -> when_excluding_exog
+
     plot_df %>%
       dplyr::filter(.data$na_item %in% when_excluding_exog) -> plot_df
   }
 
 
-  if(order.as.run & !exclude.exogenous){cat("As 'order.as.run' is TRUE, exogenous values will not be shown.\n")}
+
 
   # dplyr::left_join(x$dictionary %>%
   #             dplyr::rename(na_item = model_varnma) %>%
@@ -88,7 +93,7 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
   #         panel.grid.minor.x = ggplot2::element_blank(),
   #         panel.grid.minor.y = ggplot2::element_blank()) -> initial_plot
 
-
+  # get the central forecasts
   x$forecast %>%
     dplyr::select("central.estimate") %>%
     tidyr::unnest("central.estimate") %>%
@@ -96,17 +101,19 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
     tidyr::drop_na() %>%
     tidyr::pivot_wider(id_cols = "time", names_from = "name", values_from = "value") -> central_forecasts
 
+  # find out which of the central forecasts should be exponentiated (because they were run in ln)
   central_forecasts %>%
     names %>%
     stringr::str_detect(., "^ln.") -> to_exponentiate
 
+  # ---
+
+  # Dealing with uncertainty (all forecasts) --------
+  # unnest the set of all estimates from the original object
   x$forecast %>%
     dplyr::select("dep_var", "all.estimates") %>%
     tidyr::unnest("all.estimates") %>%
     tidyr::pivot_longer(-c("time", "dep_var")) -> all_forecasts
-
-
-  # Dealing with uncertainty (all forecasts) --------
 
   dplyr::tibble(dep_var = names(central_forecasts),
                 expo = to_exponentiate,
@@ -145,15 +152,25 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
                      p25 = stats::quantile(.data$values, probs = 0.25)) -> all_forecasts_processed_q
 
 
+  # here we get the last fitted value
   plot_df %>%
     dplyr::filter(.data$fit == "TRUE") %>%
     dplyr::group_by(.data$na_item) %>%
-    dplyr::filter(.data$time == max(.data$time)) %>%
+    dplyr::filter(.data$time == max(.data$time, na.rm = TRUE)) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(-"var") %>%
+    dplyr::mutate(fit = "forecast") -> last_fitted_value
+
+  # and the last historical value
+  plot_df %>%
+    dplyr::filter(.data$fit == "FALSE") %>%
+    dplyr::group_by(.data$na_item) %>%
+    dplyr::filter(.data$time == max(.data$time, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     dplyr::select(-"var") %>%
     dplyr::mutate(fit = "forecast") -> last_hist_value
 
-  last_hist_value %>%
+  last_fitted_value %>%
     dplyr::group_by(.data$time, .data$na_item) %>%
     dplyr::summarise(max = .data$values,
                      min = .data$values,
@@ -171,16 +188,17 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
   x$exog_data %>%
     dplyr::select(-dplyr::any_of(c("q_1","q_2","q_3","q_4"))) %>%
     tidyr::pivot_longer(-"time", values_to = "values", names_to = "na_item") %>%
-    dplyr::bind_rows(last_hist_value) %>%
+    dplyr::bind_rows(last_hist_value %>% dplyr::mutate(fit = "Forecast/Assumption of\nExogenous Variables")) %>%
     dplyr::arrange(.data$time) %>%
     dplyr::mutate(fit = "Forecast/Assumption of\nExogenous Variables") %>%
     {if(!is.null(grepl_variables)){dplyr::filter(., grepl(grepl_variables,.data$na_item))} else {.}} -> exog_forecasts
 
-
   ggplot_options <- list(
     if (!exclude.exogenous) {ggplot2::geom_line(data = exog_forecasts, ggplot2::aes(x = .data$time, y = .data$values, color = .data$fit))} else {NULL}
   )
-  dplyr::bind_rows(forecasts_processed, last_hist_value) %>%
+
+
+  plotting_df_ready <- dplyr::bind_rows(forecasts_processed, last_fitted_value) %>%
     dplyr::bind_rows(plot_df) %>%
 
     {if(order.as.run){
@@ -190,9 +208,10 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
 
     {if(!is.null(first_date)){dplyr::filter(., .data$time >= as.Date(first_date))} else {.}} %>%
 
-    {if(!is.null(grepl_variables)){dplyr::filter(., grepl(grepl_variables,.data$na_item))} else {.}} %>%
+    {if(!is.null(grepl_variables)){dplyr::filter(., grepl(grepl_variables,.data$na_item))} else {.}}
 
 
+  plotting_df_ready %>%
     ggplot2::ggplot(ggplot2::aes(x = .data$time, y = .data$values, color = .data$fit)) +
 
     ggplot2::geom_ribbon(data = all_forecasts_processed_q, ggplot2::aes(ymin = .data$min, x = .data$time, ymax = .data$max, fill = .data$fit), linewidth = 0.1, alpha = 0.3, inherit.aes = FALSE, na.rm = TRUE) +
@@ -216,15 +235,28 @@ plot.aggmod.forecast <- function(x, exclude.exogenous = TRUE, order.as.run = FAL
                    panel.grid.minor.x = ggplot2::element_blank(),
                    panel.grid.minor.y = ggplot2::element_blank()) -> p
 
-  if(interactive){
-    plotly::ggplotly(p)
+  if(return.data){
+    # prepare a nice dataset to be spit out
+    plotting_df_ready %>%
+      {if(!exclude.exogenous){dplyr::bind_rows(.,exog_forecasts %>%
+                                                 dplyr::mutate(fit = "Exogenous Forecast"))} else {.}} %>%
+    dplyr::select(-"var") %>%
+      dplyr::full_join(all_forecasts_processed_q %>%
+                         dplyr::select(-"fit"), by = dplyr::join_by("time", "na_item")) %>%
+      dplyr::mutate(fit = dplyr::case_when(fit == "forecast" ~ "Endogenous Forecast",
+                                           fit == "TRUE" ~ "Insample Fit",
+                                           fit == "FALSE" ~ "Observation",
+                                           TRUE ~ fit)) %>%
+      dplyr::rename(type = "fit") %>%
+      dplyr::arrange(dplyr::desc(.data$time), .data$na_item, .data$type) %>%
+      return()
   } else {
-    return(p)
+    if(interactive){
+      plotly::ggplotly(p)
+    } else {
+      suppressWarnings(suppressMessages(print(p)))
+    }
   }
-
-
-
-
 
 
 

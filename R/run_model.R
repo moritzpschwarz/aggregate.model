@@ -206,7 +206,8 @@ run_model <- function(specification,
                    saturation.tpval = saturation.tpval,
                    max.block.size = max.block.size,
                    gets_selection = gets_selection,
-                   selection.tpval = selection.tpval)
+                   selection.tpval = selection.tpval,
+                   constrain.to.minimum.sample = constrain.to.minimum.sample)
 
   out$module_order <- module_order
   out$module_collection <- module_collection

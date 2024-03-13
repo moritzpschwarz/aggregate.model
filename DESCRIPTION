@@ -42,6 +42,7 @@ Suggests:
     igraph,
     plotly,
     purrr,
+    forecast,
     knitr,
     rmarkdown
 Config/testthat/edition: 3

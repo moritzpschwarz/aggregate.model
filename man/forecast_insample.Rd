@@ -19,7 +19,7 @@ forecast_insample(
 
 \item{uncertainty_sample}{Integer. Number of draws to be made for the error bars. Default is 100.}
 
-\item{exog_fill_method}{Character, either 'AR' or 'last'. When no exogenous values have been provided, these must be inferred. When option 'exog_fill_method = "AR"' then an autoregressive model is used to further forecast the exogenous values. With 'last', simply the last available value is used.}
+\item{exog_fill_method}{Character, either 'AR', 'auto', or 'last'. When no exogenous values have been provided, these must be inferred. When option 'exog_fill_method = "AR"' then an autoregressive model is used to further forecast the exogenous values. With 'last', simply the last available value is used. 'auto' is an \code{\link[forecast]{auto.arima}} model.}
 
 \item{plot.forecast}{Logical. Should the result be plotted? Default is TRUE.}
 }

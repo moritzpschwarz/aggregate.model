@@ -169,6 +169,24 @@ test_that("Testing nowcasting and dealing with ragged edges works with fixed dat
   set.seed(123)
   expect_message(bb <- forecast_model(model, plot.forecast = FALSE), regexp = "No exogenous values")
 
+  # check that a dataframe can be returned
+  bb_df <- plot(bb, return.data = TRUE)
+  expect_s3_class(bb_df, class = "tbl_df")
+  expect_true(all(names(bb_df) == c("time", "na_item", "values", "type", "max", "min", "p975",
+                                    "p025", "p75", "p25")))
+  expect_true(all(unique(bb_df$type) == c("Endogenous Forecast", "Insample Fit", "Observation")))
+
+  bb_df_exog <- plot(bb, return.data = TRUE, exclude.exogenous = FALSE)
+  expect_s3_class(bb_df_exog, class = "tbl_df")
+  expect_true(all(names(bb_df_exog) == c("time", "na_item", "values", "type", "max", "min", "p975",
+                                    "p025", "p75", "p25")))
+  expect_true(all(unique(bb_df_exog$type) == c("Exogenous Forecast", "Endogenous Forecast", "Observation",
+                                               "Insample Fit")))
+
+
+  expect_s3_class(plot(bb, return.data = TRUE), class = "tbl_df")
+
+
   skip_on_ci()
   expect_snapshot_plot("Forecast_plot_ragged",code = plot(bb))
 })

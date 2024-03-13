@@ -11,6 +11,7 @@
   interactive = FALSE,
   first_date = NULL,
   grepl_variables = NULL,
+  return.data = FALSE,
   ...
 )
 }
@@ -26,6 +27,8 @@
 \item{first_date}{Character. First date value to be shown. Must be a character value that can be turned into a date using as.Date() or NULL.}
 
 \item{grepl_variables}{Regular Expression Character. Can be used to select variables to be plotted. Experimental feature so use with care.}
+
+\item{return.data}{Logical. Do not return a plot but rather just the final dataset that has been created for the plot.}
 
 \item{...}{Further arguments (currently not in use).}
 }

@@ -162,17 +162,7 @@ load_or_download_variables <- function(specification,
     ) %>%
     dplyr::ungroup()
 
-  if (constrain.to.minimum.sample) {
-    if (max(stats::dist(availability$n, method = "maximum") / max(availability$n)) > 0.2) {
-      warning("Unbalanced panel, will lose more than 20\\% of data when making balanced")
-    }
-    min_date <- max(availability$min_date) # highest minimum date
-    max_date <- min(availability$max_date) # lowest maximum date
-    full <- full %>%
-      dplyr::filter(.data$time >= min_date & .data$time <= max_date)
-    # might still not be balanced but beginning- & end-points are balanced
-    # I believe zoo in gets deals with unbalanced inside time period (could be wrong)
-  }
+
 
   if (!is.null(save_to_disk)) {
 
@@ -200,6 +190,19 @@ load_or_download_variables <- function(specification,
       warning(paste0("File ending currently chosen in 'save_to_disk' is ", ending, ", which is not yet implemented. Please choose one of RDS, rds, Rds, csv, xls, xlsx."))
     }
 
+  }
+
+  # This must come after saving
+  if (constrain.to.minimum.sample) {
+    if (max(stats::dist(availability$n, method = "maximum") / max(availability$n)) > 0.2) {
+      warning("Unbalanced panel, will lose more than 20\\% of data when making balanced")
+    }
+    min_date <- max(availability$min_date) # highest minimum date
+    max_date <- min(availability$max_date) # lowest maximum date
+    full <- full %>%
+      dplyr::filter(.data$time >= min_date & .data$time <= max_date)
+    # might still not be balanced but beginning- & end-points are balanced
+    # I believe zoo in gets deals with unbalanced inside time period (could be wrong)
   }
 
   return(full)
@@ -364,9 +367,14 @@ download_edgar <- function(to_obtain, quiet) {
     zipfilename <- stringr::str_extract(string = edgar_dataset_ids[i], pattern = "(CO2|CH4|N2O)(.)+(\\.zip$)")
     # extract GHG name
     ghg <- stringr::str_extract(string = zipfilename, pattern = "(CO2|CH4|N2O)")
+
     # assume that will continue to be able to remove "_m" and replace ".zip" by ".xlsx
-    filename <- stringr::str_remove(string = zipfilename, pattern = "_m")
+    # commented out by Moritz 13.03.2024 due to update of file convention by EDGAR for v8
+    #filename <- stringr::str_remove(string = zipfilename, pattern = "_m")
+    # this now matches everything from the last /
+    filename <- stringr::str_extract(string = edgar_dataset_ids[i], pattern = "([^/]+$)")
     filename <- stringr::str_replace(string = filename, pattern = ".zip", replacement = ".xlsx")
+
     # unzip the .xlsx file into temporary directory
     utils::unzip(zipfile = tmp_download, files = filename, exdir = tmp_extract)
 
@@ -439,7 +447,8 @@ download_edgar <- function(to_obtain, quiet) {
 
     if (length(indices_sector) > 0L) {
       tmp <- readxl::read_excel(path = file.path(tmp_extract, filename),
-                                sheet = paste0(ghg, "_IPCC2006"),
+                                #sheet = paste0(ghg, "_IPCC2006"),
+                                sheet = "IPCC 2006",
                                 skip = 9)
       # quick sanity check
       stopifnot(unique(tmp$Substance) == ghg)

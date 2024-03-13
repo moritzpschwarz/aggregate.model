@@ -5,7 +5,7 @@
 #' @param n.ahead Periods to forecast ahead
 #' @param ci.levels Numeric vector. Vector with confidence intervals to be calculated. Default: c(0.5,0.66,0.95)
 #' @param ar.fill.max Integer. When no exogenous values have been provided, these must be inferred. If option 'exog_fill_method = "AR"' then an autoregressive model is used to further forecast the exogenous values. This options determines the number of AR terms that should be used. Default is 4.
-#' @param exog_fill_method Character, either 'AR' or 'last'. When no exogenous values have been provided, these must be inferred. When option 'exog_fill_method = "AR"' then an autoregressive model is used to further forecast the exogenous values. With 'last', simply the last available value is used.
+#' @param exog_fill_method Character, either 'AR', 'auto', or 'last'. When no exogenous values have been provided, these must be inferred. When option 'exog_fill_method = "AR"' then an autoregressive model is used to further forecast the exogenous values. With 'last', simply the last available value is used. 'auto' is an \code{\link[forecast]{auto.arima}} model.
 #' @param plot.forecast Logical. Should the result be plotted? Default is TRUE.
 #' @param uncertainty_sample Integer. Number of draws to be made for the error bars. Default is 100.
 #' @param quiet Logical. Should messages about the forecast procedure be suppressed?
@@ -55,7 +55,7 @@ forecast_model <- function(model,
                            quiet = FALSE){
 
   if(!isa(model, "aggmod")){stop("Forecasting only possible with an aggmod object. Execute 'run_model' to get such an object.")}
-  if(!is.null(exog_fill_method) & !exog_fill_method %in% c("AR","last")){stop("The method to fill exogenous values 'exog_fill_method' can only be either NULL (when data is provided), or 'AR' or 'last'.")}
+  if(!is.null(exog_fill_method) & !exog_fill_method %in% c("AR","last","auto")){stop("The method to fill exogenous values 'exog_fill_method' can only be either NULL (when data is provided), or 'AR', 'auto', or 'last'.")}
   if(!is.null(ar.fill.max) & (!is.integer(as.integer(ar.fill.max)) | ar.fill.max < 1)){stop("The option 'ar.fill.max' can either be NULL or must be an integer that is larger than 0.")}
 
   # 1. Determine Exogenous Variables and wrangle future values ---------------
@@ -73,8 +73,6 @@ forecast_model <- function(model,
                                              ar.fill.max = ar.fill.max,
                                              n.ahead = n.ahead,
                                              quiet = quiet)
-
-
 
   ## 1a. Nowcasting --------------------------------------------------------------------
   nowcasted <- nowcasting(model, exog_df_ready = exog_df_ready)
@@ -238,7 +236,7 @@ forecast_model <- function(model,
 
           # now for each run-row, we run predict.isat
           dplyr::mutate(prediction = purrr::map(.data$data, function(x){
-            gets::predict.isat(isat_obj, newmxreg = x %>% dplyr::select(dplyr::any_of(isat_obj$aux$mXnames)),
+            gets::predict.isat(isat_obj, newmxreg = x %>% dplyr::select(dplyr::any_of(isat_obj$aux$mXnames)) %>% as.matrix,
                                n.ahead = n.ahead, plot = FALSE,
                                ci.levels = ci.levels, n.sim = 1)
 

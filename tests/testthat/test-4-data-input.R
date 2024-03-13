@@ -138,13 +138,14 @@ test_that("download_edgar works correctly", {
   # IPCC code allows to sum across sub-codes
   # e.g. code "1.A" sums up all codes "1.A.xxx"
   # check manually whether this worked correctly for EmiCO2Combustion
-  url <- "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_CO2_m_2000_2021.zip"
+  #url <- "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_CO2_m_2000_2021.zip"
+  url <- "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v80_FT2022_GHG/IEA_EDGAR_CO2_m_1970_2022.zip"
   tmp_download <- tempfile(fileext = "zip")
   download.file(url = url, destfile = tmp_download, mode = "wb")
   tmp_extract <- tempdir()
-  unzip(zipfile = tmp_download, files = "CO2_2000_2021.xlsx", exdir = tmp_extract)
-  tmp <- readxl::read_excel(path = file.path(tmp_extract, "CO2_2000_2021.xlsx"),
-                            sheet = "CO2_IPCC2006",
+  unzip(zipfile = tmp_download, files = "IEA_EDGAR_CO2_m_1970_2022.xlsx", exdir = tmp_extract)
+  tmp <- readxl::read_excel(path = file.path(tmp_extract, "IEA_EDGAR_CO2_m_1970_2022.xlsx"),
+                            sheet = "IPCC 2006",
                             skip = 9)
   manual <- tmp %>%
     dplyr::select("Country_code_A3", "Year", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "ipcc_code_2006_for_standard_report") %>%
@@ -455,7 +456,7 @@ test_that("load_or_download_variables() works correctly", {
   expect_identical(a %>% dplyr::filter(na_item == "EmiCH4Livestock") %>% dplyr::pull(time) %>% max(), as.Date("2017-10-01"))
   expect_identical(b %>% dplyr::filter(na_item == "EmiCH4Livestock") %>% dplyr::pull(time) %>% max(), as.Date("2017-10-01"))
   # check that in case a, have full data for EmiN2OTotal but only until time < as.Date("2015-01-01") in case b
-  expect_identical(a %>% dplyr::filter(na_item == "EmiN2OTotal") %>% dplyr::pull(time) %>% max(), as.Date("2021-10-01"))
+  expect_identical(a %>% dplyr::filter(na_item == "EmiN2OTotal") %>% dplyr::pull(time) %>% max(), as.Date("2022-10-01"))
   expect_identical(b %>% dplyr::filter(na_item == "EmiN2OTotal") %>% dplyr::pull(time) %>% max(), as.Date("2014-10-01"))
 
   # test that saving works

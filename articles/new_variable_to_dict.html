@@ -375,30 +375,26 @@ Production:</p>
 <p><span class="math display">\[
 EmiCO2Industry = HICP_{Gas} + HICP_{Electricity} + IndProd
 \]</span></p>
-<p>We put this into our specification table alongside a simple identity
-that we need for the moment because the current set-up does not allow
-not adding any identities.</p>
+<p>This is then the specification that we will run - with the type being
+<code>n</code> that denotes a Definition and will therefore be
+estimated:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">specification</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>    <span class="st">"n"</span>,</span>
-<span>    <span class="st">"d"</span></span>
+<span>    <span class="st">"n"</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  dependent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>    <span class="st">"EmiCO2Industry"</span>,</span>
-<span>    <span class="st">"TOTS"</span></span>
+<span>    <span class="st">"EmiCO2Industry"</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  independent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>    <span class="st">"HICP_Gas + HICP_Electricity + IndProd"</span>,</span>
-<span>    <span class="st">"GDP + Import"</span></span>
+<span>    <span class="st">"HICP_Gas + HICP_Electricity + IndProd"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">specification</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
 <span><span class="co">#&gt;   type  dependent      independent                          </span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> n     EmiCO2Industry HICP_Gas + HICP_Electricity + IndProd</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> d     TOTS           GDP + Import</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> n     EmiCO2Industry HICP_Gas + HICP_Electricity + IndProd</span></span></code></pre></div>
 <p>With that specification set up, we now run the model using the
 <code>new_dict</code> that we constructed earlier.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -408,7 +404,7 @@ not adding any identities.</p>
 <span>                   present <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                   quiet <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                   constrain.to.minimum.sample <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p>Let’s visualise this model alongisde its forecast:</p>
+<p>Let’s visualise this model alongside its forecast:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mod_fcast</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/forecast_model.html">forecast_model</a></span><span class="op">(</span><span class="va">model</span>, plot.forecast <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; No exogenous values provided. Model will forecast the exogenous values with an AR4 process (incl. Q dummies, IIS and SIS w 't.pval = 0.001').</span></span>

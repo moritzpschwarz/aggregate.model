@@ -1,0 +1,5 @@
+"","type","dependent","independent"
+"1","d","TOTS","GValueAdd + Import"
+"2","n","Import","FinConsExpHH + GCapitalForm"
+"3","n","EmiCO2Combustion","HDD + HICP_Gas + HICP_Electricity + GValueAdd"
+"4","n","EmiCO2Industry","HICP_Gas + HICP_Electricity + GValueAddIndus"

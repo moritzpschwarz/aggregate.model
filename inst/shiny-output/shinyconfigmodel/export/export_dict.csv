@@ -1,0 +1,41 @@
+"","model_varname","full_name","database","variable_code","dataset_id","var_col","freq","geo","unit","s_adj","nace_r2","ipcc_sector","cpa2_1","siec"
+"1","TOTS","Total Supply",NA,"TOTS",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"2","GDP","Gross domestic product at market prices","eurostat","B1GQ","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"3","GValueAdd","Value added, gross","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","TOTAL",NA,NA,NA
+"4","Export","Exports of goods and services","eurostat","P6","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"5","Import","Imports of goods and services","eurostat","P7","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"6","GCapitalForm","Gross capital formation","eurostat","P5G","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"7","FinConsExp","Final consumption expenditure","eurostat","P3","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"8","FinConsExpGov","Final consumption expenditure of general government","eurostat","P3_S13","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"9","FinConsExpHH","Household and NPISH final consumption expenditure","eurostat","P31_S14_S15","namq_10_gdp","na_item","q","AT","CLV05_MEUR","SCA",NA,NA,NA,NA
+"10","StatDiscrep","Statistical discrepancy (expenditure approach)","eurostat","YA0","namq_10_gdp","na_item","q","AT","CP_MEUR","SCA",NA,NA,NA,NA
+"11","Emissions","Greenhouse Gas Emissions (All NACE and HH)","eurostat","GHG","env_ac_aigg_q","airpol","q","AT","THS_T","SCA","TOTAL_HH",NA,NA,NA
+"12","LabCostManuf","Manufacturing Labour cost index - Total Labour Cost","eurostat","LM-LCI-TOT","ei_lmlc_q","indic","q","AT","I20","SCA","C",NA,NA,NA
+"13","DomDemand","Domestic Demand",NA,"DomDemand",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"14","GValueAddManuf","Value added, gross Manufacturing","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","C",NA,NA,NA
+"15","GValueAddGov","Value added, gross Government","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","O-Q",NA,NA,NA
+"16","LabCostConstr","Construction Labour cost index - Total Labour Cost","eurostat","LM-LCI-TOT","ei_lmlc_q","indic","q","AT","I20","SCA","F",NA,NA,NA
+"17","BuildingPermits","Building permits - m^2 useful floorspace - Buildings","eurostat","PSQM","sts_cobp_q","indic_bt","q","AT","I15","SCA","F_CC1",NA,"CPA_F41001_41002",NA
+"18","LabCostService","Service Labour cost index - Total Labour Cost","eurostat","LM-LCI-TOT","ei_lmlc_q","indic","q","AT","I20","SCA","G-N",NA,NA,NA
+"19","GValueAddConstr","Value added, gross Construction","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","F",NA,NA,NA
+"20","GValueAddAgri","Value added, gross Agriculture","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","A",NA,NA,NA
+"21","GValueAddIndus","Value added, gross Industry","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","B-E",NA,NA,NA
+"22","GValueAddInfocom","Value added, gross Information and Communication","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","J",NA,NA,NA
+"23","GValueAddFinance","Value added, gross Financial Services","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","K",NA,NA,NA
+"24","GValueAddRealest","Value added, gross Real Estate","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","L",NA,NA,NA
+"25","GValueAddResearch","Value added, gross Scientific and Professional Services","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","M_N",NA,NA,NA
+"26","GValueAddArts","Value added, gross Arts and Entertainment","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","R-U",NA,NA,NA
+"27","GValueAddWholesaletrade","Value added, gross Wholesale and retail trade and Tourism","eurostat","B1G","namq_10_a10","na_item","q","AT","CLV05_MEUR","SCA","G-I",NA,NA,NA
+"28","HICP","Harmonised Index of Consumer Prices, all items, index 100 = 2015","eurostat","CP00","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"29","HICP_Energy","Harmonised Index of Consumer Prices, Energy, index 100 = 2015","eurostat","NRG","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"30","HICP_Electricity","Harmonised Index of Consumer Prices, Electricity, index 100 = 2015","eurostat","CP0451","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"31","HICP_Gas","Harmonised Index of Consumer Prices, Gas, index 100 = 2015","eurostat","CP0452","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"32","HICP_Liquid_Fuels","Harmonised Index of Consumer Prices, Liquid Fuels, index 100 = 2015","eurostat","CP0453","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"33","HICP_Solid_Fuels","Harmonised Index of Consumer Prices, Solid Fuels, index 100 = 2015","eurostat","CP0454","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"34","HICP_Heat","Harmonised Index of Consumer Prices, Heat Energy, index 100 = 2015","eurostat","CP0455","prc_hicp_midx","coicop","m","AT","I15",NA,NA,NA,NA,NA
+"35","HDD","Heating Degree Days","eurostat","HDD","nrg_chdd_m","indic_nrg","m","AT","NR",NA,NA,NA,NA,NA
+"36","CDD","Cooling Degree Days","eurostat","CDD","nrg_chdd_m","indic_nrg","m","AT","NR",NA,NA,NA,NA,NA
+"37","EmiCH4Livestock","Methane Emissions from Livestock","edgar",NA,"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_CH4_m_2000_2021.zip",NA,"m","AT",NA,NA,NA,"3.A",NA,NA
+"38","EmiCO2Industry","Carbon Emissions from Industrial Processes and Product Use","edgar",NA,"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_CO2_m_2000_2021.zip",NA,"m","AT",NA,NA,NA,"2",NA,NA
+"39","EmiCO2Combustion","Carbon Emissions from Fuel Combustion Activities","edgar",NA,"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_CO2_m_2000_2021.zip",NA,"m","AT",NA,NA,NA,"1.A",NA,NA
+"40","EmiN2OTotal","Nitrous Oxide Emissions Total","edgar",NA,"https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/EDGAR/datasets/v70_FT2021_GHG/v70_FT2021_N2O_m_2000_2021.zip",NA,"m","AT",NA,NA,NA,"TOTAL",NA,NA

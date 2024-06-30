@@ -94,7 +94,7 @@ variables.</p>
 <span>    model_varname <span class="op">=</span> <span class="st">"IndProd"</span>, <span class="co"># this is free to choose but must be unique</span></span>
 <span>    full_name <span class="op">=</span> <span class="st">"An index of Industrial Production"</span>,</span>
 <span>    database  <span class="op">=</span> <span class="st">"eurostat"</span>,</span>
-<span>    variable_code <span class="op">=</span> <span class="st">"PROD"</span>, <span class="co"># in this case use the bt_indicator information here</span></span>
+<span>    variable_code <span class="op">=</span> <span class="st">"PRD"</span>, <span class="co"># in this case use the bt_indicator information here</span></span>
 <span>    dataset_id <span class="op">=</span> <span class="st">"sts_inpr_q"</span>,</span>
 <span>    var_col <span class="op">=</span> <span class="st">"indic_bt"</span>, <span class="co"># here we specify what the column with the variables is called</span></span>
 <span>    freq <span class="op">=</span> <span class="st">"q"</span>, <span class="co"># for quarterly data, 'm' would be monthly</span></span>
@@ -266,22 +266,22 @@ package:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4,746,482 × 8</span></span></span>
 <span><span class="co">#&gt;    freq  indic_bt nace_r2 s_adj unit  geo   TIME_PERIOD values</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Q     PROD     B       CA    I10   AT    1996-01-01    64.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Q     PROD     B       CA    I10   AT    1996-04-01    85.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Q     PROD     B       CA    I10   AT    1996-07-01    90.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Q     PROD     B       CA    I10   AT    1996-10-01    87.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Q     PROD     B       CA    I10   AT    1997-01-01    66.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Q     PROD     B       CA    I10   AT    1997-04-01    82.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Q     PROD     B       CA    I10   AT    1997-07-01    85.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Q     PROD     B       CA    I10   AT    1997-10-01    82.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Q     PROD     B       CA    I10   AT    1998-01-01    69.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Q     PROD     B       CA    I10   AT    1998-04-01    91.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Q     PRD      B       CA    I10   AT    1996-01-01    64.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Q     PRD      B       CA    I10   AT    1996-04-01    85.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Q     PRD      B       CA    I10   AT    1996-07-01    90.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Q     PRD      B       CA    I10   AT    1996-10-01    87.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Q     PRD      B       CA    I10   AT    1997-01-01    66.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Q     PRD      B       CA    I10   AT    1997-04-01    82.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Q     PRD      B       CA    I10   AT    1997-07-01    85.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Q     PRD      B       CA    I10   AT    1997-10-01    82.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Q     PRD      B       CA    I10   AT    1998-01-01    69.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Q     PRD      B       CA    I10   AT    1998-04-01    91.1</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4,746,472 more rows</span></span></span></code></pre></div>
 <p>Now let’s filter this raw dataset down to the data series that we
 need:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dat_raw</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">indic_bt</span> <span class="op">==</span> <span class="st">"PROD"</span>, <span class="co"># for industrial production variable</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">indic_bt</span> <span class="op">==</span> <span class="st">"PRD"</span>, <span class="co"># for industrial production variable</span></span>
 <span>         <span class="va">nace_r2</span> <span class="op">==</span> <span class="st">"B-D"</span>, <span class="co"># to select all NACE rev 2 sectors in B, C, and D</span></span>
 <span>         <span class="va">s_adj</span> <span class="op">==</span> <span class="st">"NSA"</span>, <span class="co"># to get the raw, non-adjusted data</span></span>
 <span>         <span class="va">unit</span> <span class="op">==</span> <span class="st">"I15"</span>, <span class="co"># to get the 2015 Index</span></span>
@@ -291,16 +291,16 @@ need:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 112 × 8</span></span></span>
 <span><span class="co">#&gt;    freq  indic_bt nace_r2 s_adj unit  geo   TIME_PERIOD values</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Q     PROD     B-D     NSA   I15   AT    1996-01-01    50.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Q     PROD     B-D     NSA   I15   AT    1996-04-01    51.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Q     PROD     B-D     NSA   I15   AT    1996-07-01    51.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Q     PROD     B-D     NSA   I15   AT    1996-10-01    56  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Q     PROD     B-D     NSA   I15   AT    1997-01-01    51.8</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Q     PROD     B-D     NSA   I15   AT    1997-04-01    55.7</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Q     PROD     B-D     NSA   I15   AT    1997-07-01    55.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Q     PROD     B-D     NSA   I15   AT    1997-10-01    60.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Q     PROD     B-D     NSA   I15   AT    1998-01-01    57.1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Q     PROD     B-D     NSA   I15   AT    1998-04-01    60.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Q     PRD      B-D     NSA   I15   AT    1996-01-01    50.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Q     PRD      B-D     NSA   I15   AT    1996-04-01    51.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Q     PRD      B-D     NSA   I15   AT    1996-07-01    51.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Q     PRD      B-D     NSA   I15   AT    1996-10-01    56  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Q     PRD      B-D     NSA   I15   AT    1997-01-01    51.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Q     PRD      B-D     NSA   I15   AT    1997-04-01    55.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Q     PRD      B-D     NSA   I15   AT    1997-07-01    55.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Q     PRD      B-D     NSA   I15   AT    1997-10-01    60.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Q     PRD      B-D     NSA   I15   AT    1998-01-01    57.1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Q     PRD      B-D     NSA   I15   AT    1998-04-01    60.4</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 102 more rows</span></span></span></code></pre></div>
 <p>This looks quite good. We can plot this really quickly:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -340,7 +340,7 @@ possible. For our example this means:</p>
 <span>    model_varname <span class="op">=</span> <span class="st">"IndProd"</span>, <span class="co"># this is free to choose but must be unique</span></span>
 <span>    full_name <span class="op">=</span> <span class="st">"An index of Industrial Production"</span>,</span>
 <span>    database  <span class="op">=</span> <span class="st">"eurostat"</span>,</span>
-<span>    variable_code <span class="op">=</span> <span class="st">"PROD"</span>, <span class="co"># in this case use the bt_indicator information here</span></span>
+<span>    variable_code <span class="op">=</span> <span class="st">"PRD"</span>, <span class="co"># in this case use the bt_indicator information here</span></span>
 <span>    dataset_id <span class="op">=</span> <span class="st">"sts_inpr_q"</span>,</span>
 <span>    var_col <span class="op">=</span> <span class="st">"indic_bt"</span>, <span class="co"># here we specify what the column with the variables is called</span></span>
 <span>    freq <span class="op">=</span> <span class="st">"q"</span>, <span class="co"># for quarterly data, 'm' would be monthly</span></span>
@@ -361,7 +361,7 @@ possible. For our example this means:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> EmiCO2Industry Carbon E… edgar    <span style="color: #BB0000;">NA</span>            https://j… <span style="color: #BB0000;">NA</span>      m     AT   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> EmiCO2Combust… Carbon E… edgar    <span style="color: #BB0000;">NA</span>            https://j… <span style="color: #BB0000;">NA</span>      m     AT   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> EmiN2OTotal    Nitrous … edgar    <span style="color: #BB0000;">NA</span>            https://j… <span style="color: #BB0000;">NA</span>      m     AT   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> IndProd        An index… eurostat PROD          sts_inpr_q indic_… q     AT   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> IndProd        An index… eurostat PRD           sts_inpr_q indic_… q     AT   </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: unit &lt;chr&gt;, s_adj &lt;chr&gt;, nace_r2 &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ipcc_sector &lt;chr&gt;, cpa2_1 &lt;chr&gt;, siec &lt;lgl&gt;</span></span></span></code></pre></div>
 </div>

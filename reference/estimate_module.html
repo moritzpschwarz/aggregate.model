@@ -63,7 +63,7 @@
 <span>  max.block.size <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>  gets_selection <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  selection.tpval <span class="op">=</span> <span class="fl">0.01</span>,</span>
-<span>  <span class="va">quiet</span></span>
+<span>  quiet <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -143,6 +143,8 @@
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sample_data_clean</span> <span class="op">&lt;-</span> <span class="fu">aggregate.model</span><span class="fu">:::</span><span class="fu"><a href="clean_data.html">clean_data</a></span><span class="op">(</span><span class="va">sample_data</span>, max.ar <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">aggregate.model</span><span class="fu">:::</span><span class="fu">estimate_module</span><span class="op">(</span><span class="va">sample_data_clean</span>, <span class="st">"yvar"</span>, <span class="st">"xvar"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> No Outliers or Step-Shifts detected in the marginal equations to test for Super Exogeneity in ln.yvar.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Hence not possible to run the test.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $isat_list</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      ar    BIC isat_object</span>
@@ -155,7 +157,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $best_model</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Date: Sun Jun 23 13:01:15 2024 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Date: Sun Jun 30 09:31:43 2024 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dependent var.: ln.yvar </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Method: Ordinary Least Squares (OLS)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Variance-Covariance: Ordinary </span>
@@ -187,6 +189,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> SE of regression    0.00876</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> R-squared           0.18155</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log-lik.(n=366)  1219.55995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $superex_test</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $args</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $args$clean_data</span>

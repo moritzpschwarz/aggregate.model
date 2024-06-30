@@ -312,7 +312,7 @@ emissions from combustion activities:</p>
 <code class="sourceCode R"><span><span class="co"># inspect the estimated equation</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">co2module</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Date: Sun Jun 23 13:03:14 2024 </span></span>
+<span><span class="co">#&gt; Date: Sun Jun 30 09:33:59 2024 </span></span>
 <span><span class="co">#&gt; Dependent var.: ln.EmiCO2Combustion </span></span>
 <span><span class="co">#&gt; Method: Ordinary Least Squares (OLS)</span></span>
 <span><span class="co">#&gt; Variance-Covariance: Ordinary </span></span>
@@ -404,9 +404,11 @@ avoids having to look at all <code>"isat"</code> model objects
 manually.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/diagnostics_model.html">diagnostics_model</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             module        AR      ARCH IIS SIS  n indicator_share</span></span>
-<span><span class="co">#&gt; 1           Import 0.3442781 0.3038267   5   0 87      0.05747126</span></span>
-<span><span class="co">#&gt; 2 EmiCO2Combustion 0.1340768 0.3907707   0   2 88      0.02272727</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 8</span></span></span>
+<span><span class="co">#&gt;   module     AR  ARCH `Super Exogeneity`   IIS   SIS     n `Share of Indicators`</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Import  0.344 0.304           0.000<span style="text-decoration: underline;">538</span>     5     0    87                0.057<span style="text-decoration: underline;">5</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> EmiCO2… 0.134 0.391           0.006<span style="text-decoration: underline;">83</span>      0     2    88                0.022<span style="text-decoration: underline;">7</span></span></span></code></pre></div>
 <p>The diagnostics pass for both modules: we neither have evidence for
 autocorrelated errors nor for autoregressive conditional
 heteroskedasticity.</p>

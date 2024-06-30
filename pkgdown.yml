@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   example-workflow: example-workflow.html
   new_variable_to_dict: new_variable_to_dict.html
-last_built: 2024-06-30T09:30Z
+last_built: 2024-06-30T15:20Z
 urls:
   reference: http://moritzschwarz.org/aggregate.model/reference
   article: http://moritzschwarz.org/aggregate.model/articles

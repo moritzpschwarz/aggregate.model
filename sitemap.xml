@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/404.html</loc>
+    <loc>http://moritzschwarz.org/osem/404.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/LICENSE.html</loc>
+    <loc>http://moritzschwarz.org/osem/LICENSE.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/articles/example-workflow.html</loc>
+    <loc>http://moritzschwarz.org/osem/articles/example-workflow.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/articles/index.html</loc>
+    <loc>http://moritzschwarz.org/osem/articles/index.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/articles/new_variable_to_dict.html</loc>
+    <loc>http://moritzschwarz.org/osem/articles/new_variable_to_dict.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/authors.html</loc>
+    <loc>http://moritzschwarz.org/osem/authors.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/index.html</loc>
+    <loc>http://moritzschwarz.org/osem/index.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/add_to_original_data.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/add_to_original_data.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/aggregate.model.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/calculate_identities.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/calculate_identities.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/check_config_table.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/check_config_table.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/check_frequencies.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/check_frequencies.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/classify_variables.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/classify_variables.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/clean_data.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/clean_data.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/determine_datacodes.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/determine_datacodes.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/determine_eurocodes.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/determine_eurocodes.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/determine_variables.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/determine_variables.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/diagnostics_model.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/diagnostics_model.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/dict.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/dict.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/download_edgar.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/download_edgar.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/download_eurostat.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/download_eurostat.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/estimate_module.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/estimate_module.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_exogenous_values.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_exogenous_values.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_identities.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_identities.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_insample.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_insample.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_model.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_model.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_sensitivity.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_sensitivity.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/forecast_setup_estimated_relationships.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/forecast_setup_estimated_relationships.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/identify_module_data.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/identify_module_data.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/identity_module.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/identity_module.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/index.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/index.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/load_locally.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/load_locally.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/load_or_download_variables.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/load_or_download_variables.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/network.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/network.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/new_osem.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/new_aggmod.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/nowcasting.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/nowcasting.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/osem.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/plot.aggmod.forecast.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/plot.osem.forecast.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/present_model.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/present_model.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/print.aggmod.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/print.osem.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/run_model.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/run_model.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/run_module.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/run_module.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/run_shiny.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/run_shiny.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/sample_input.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/sample_input.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/strsplits.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/strsplits.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/super.exogeneity.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/super.exogeneity.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/translate_variables.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/translate_variables.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/update_data.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/update_data.html</loc>
   </url>
   <url>
-    <loc>http://moritzschwarz.org/aggregate.model/reference/validate_aggmod.html</loc>
+    <loc>http://moritzschwarz.org/osem/reference/validate_osem.html</loc>
   </url>
 </urlset>
